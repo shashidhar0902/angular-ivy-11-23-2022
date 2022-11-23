@@ -1,0 +1,57 @@
+<!--<button (click)='toggleButton()'>Button</button>
+<p *ngIf="buttonTrue">crud works!</p>
+-->
+<div class="card">
+  <div class="card-header">
+    <h1>CRUD LIST</h1>
+  </div>
+  <form [formGroup]="checkOutForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="h4" style="text-align:center;background-color:lightgrey;padding:20px;">Add Item</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+      <p class="h5">Enter Name of product:</p>
+        <input formControlName="name" type="text" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="h5">Enter Cost:</p>
+        <input formControlName="cost" type="text" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary">Add Item</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="table-responsive">
+          <span *ngIf="!items.length">List Empty! Add Items to the list</span>
+          <table class="table" *ngIf="items.length">
+            <thead>
+              <td>Name</td>
+              <td>Cost</td>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items">
+                <td>{{ item.Name }}</td>
+                <td>{{ item.Cost }}</td>
+                <td>
+                  <button class="bt btn-danger" (onclick)='Delete()'>Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
